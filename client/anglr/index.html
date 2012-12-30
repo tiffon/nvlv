@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>nvlv - proto - 0</title>
+	<link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+	<!-- <ul class="menu">
+		<li><a href="#/view1">view1</a></li>
+		<li><a href="#/view2">view2</a></li>
+	</ul> -->
+
+	<div>Angular seed app: v<span app-version></span></div>
+
+	<div ng-controller="AwesomeCtrl">
+		<button ng-click="refresh()">do refresh</button>
+		<ul style="height: 400px; white-space: pre-wrap; overflow: auto; border: 1px solid #faa; float: left; width: 90%;">
+			<li ng-repeat="msg in output">{{msg}}</li>
+		</ul><!-- 
+		<ul style="float: left; width: 33%; white-space: pre-wrap;">
+			<li ng-repeat="msg in output">{{msg}}</li>
+		</ul> -->
+	</div>
+
+	<!-- In production use:
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+	-->
+	
+	<link rel="stylesheet" href="./js/jsr/jsr.css" />
+	<link rel="stylesheet" href="./js/jsr/codemirror.css">
+	<script src="./js/jquery-1.8.0.min.js"></script>
+	<script src="./js/jsr-options.js"></script>
+	<script src="./js/jsr/codemirror-compressed.js"></script>
+	<script src="./js/jsr/jsr.js"></script>
+
+	<script src="lib/angular/angular.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/filters.js"></script>
+	<script src="js/directives.js"></script>
+	<!-- <script src="./js/nvlv_anglr.js"></script> -->
+</body>
+</html>

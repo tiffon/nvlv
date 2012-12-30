@@ -1,0 +1,408 @@
+
+
+#jsr *                          {
+                                -webkit-box-sizing: border-box; box-sizing: border-box; vertical-align: text-top; /* natural box model */
+                                -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+                                -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+                                -webkit-tap-highlight-color: rgba(0,0,0,0) !important; /* make transparent link selection, adjust opacity 0 to 1.0 */
+                                -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+                                }
+
+#jsr a                          { text-decoration:none; border:none; }
+
+#jsr a.active                   { color:#e55569; }
+
+#jsr a:hover                    { color:#00e;  }
+
+#jsr_icon                       {
+                                position: fixed;
+                                bottom: 12px;
+                                right: 12px;
+                                width: 50px;
+                                height: 30px;
+                                display:block;
+                                overflow:hidden;
+                                background-color:transparent;
+                                background-image:url('jsr_sprite.png');
+                                background-repeat:no-repeat;
+                                background-position: 0 -40px;
+                                -webkit-box-shadow:0 0 3px rgba(0, 0, 0, 0.5);
+                                box-shadow:0 0 3px rgba(0, 0, 0, 0.5);
+                                }
+
+#jsr                            {
+                                font-size:12px;
+                                width:600px;
+                                height:600px;
+                                -webkit-overflow-scrolling:touch;
+                                border-top-left-radius:3px;
+                                border-top-right-radius:3px;
+                                border:1px solid #000;
+                                background-color: #333;
+                                position: fixed;
+                                z-index: 9999;
+                                font-family: "Consolas", Menlo, Monaco, "Courier", "Courier New", monospace;
+                                color: #000;
+                                -webkit-font-smoothing: subpixel-antialiased;
+                                }
+
+#jsr.iPad                       { position: absolute; }
+
+#jsr_chrome_top                 {
+                                display: block;
+                                position: absolute;
+                                z-index: 9999;
+                                top: 0;
+                                height: 23px;
+                                width: 100%;
+                                border-top-left-radius:2px;
+                                border-top-right-radius:2px;
+                                background: -webkit-gradient(linear, left top, left bottom, 
+                                                             color-stop(100%,#868686), 
+                                                             color-stop(0%,  #9a9a9a));
+                                background: -webkit-linear-gradient (top, #868686 100%, #9a9a9a 0%);
+                                }
+
+#jsr_close                      {
+                                background-color:transparent;
+                                background-image:url('jsr_sprite.png');
+                                background-repeat:no-repeat;
+                                background-position: 0px -20px;
+                                width:10px;
+                                height:10px;
+                                margin: 7px 0 0 11px;
+                                }
+
+
+#jsr_scroller_wrap              {
+                                height: 100%; 
+                                width: auto; 
+                                padding: 24px 0 34px 0;
+                                }
+
+#jsr_scroller                   {
+                                -webkit-overflow-scrolling:touch;
+                                position: relative;
+                                top: 0;
+                                height: 100%;
+                                background-color: #f8f8f8;
+                                color: #121212;
+                                }
+
+
+.jsrSprite                      {
+                                display:block;
+                                overflow:hidden;
+                                background-color:transparent;
+                                background-image:url('jsr_sprite.png');
+                                background-repeat:no-repeat;
+                                }
+
+#jsr_cons_out *                 {  -webkit-user-select: text;  }
+
+#jsr_cons_out                   {
+                                white-space: pre;
+                                padding: 10px 0 10px 0;
+                                margin-left: 40px;
+                                background-color: #f8f8f8;
+                                }
+
+#jsr_cons_out a                 {  color: #a840a7;  }
+
+
+
+ 
+/** each console output is put into a div **/
+
+.jsr_co_line                    {
+                                position: relative;
+                                top: 0;
+                                left: 0;
+                                border-top: 1px solid  white; 
+                                border-bottom: 1px solid  #d9d9d9;
+                                border-left: 1px solid #d9d9d9;
+                                padding: 3px 0 3px 20px;
+                                }
+
+.jsr_co_line_input_boundary     {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                border-top: 4px solid  #1c7ce3;
+                                }
+
+.jsr_co_line_input              {
+                                position: relative;
+                                top: 0;
+                                left: 0;
+                                border-bottom: 1px solid  #d9d9d9;
+                                border-left: 1px solid #d9d9d9;
+                                padding: 7px 0 7px 20px;
+                                }
+
+.jsr_co_line_error_boundary     {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                border-top: 4px solid  #c00;
+                                }
+
+.jsr_co_line_error              {
+                                color: #c00;
+                                position: relative;
+                                top: 0;
+                                left: 0;
+                                border-bottom: 1px solid  #d9d9d9;
+                                border-left: 1px solid #c00;
+                                padding: 7px 0 7px 20px;
+                                }
+
+.jsr_co_errorInfo               {
+                                vertical-align: baseline;
+                                line-height: 1.5em;
+                                padding-top: 4px;
+                                margin: 0;
+                                color: #c00;
+                                }
+
+.jsr_co_basic                   {
+                                vertical-align: baseline;
+                                line-height: 1.5em;
+                                padding-top: 4px;
+                                margin: 0;
+                                }
+
+
+.jsr_consExpander               {
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                height: 100%;
+                                width: 40px;
+                                float: left;
+                                padding: 1px 0 2px 0;
+                                background-clip: content-box;
+                                }
+
+.jsr_co_propLvl0                {  left: -41px; background-color: rgba(0,0,0,0.05); z-index: 0;  }
+.jsr_co_propLvl1                {  left: -65px; background-color: rgba(0,0,0,0.05); z-index: 1;  }
+.jsr_co_propLvl2                {  left: -89px; background-color: rgba(0,0,0,0.05); z-index: 2;  }
+.jsr_co_propLvl3                {  left: -113px; background-color: rgba(0,0,0,0.05); z-index: 3;  }
+.jsr_co_propLvl4                {  left: -137px; background-color: rgba(0,0,0,0.05); z-index: 4;  }
+.jsr_co_propLvl5                {  left: -161px; background-color: rgba(0,0,0,0.05); z-index: 5;  }
+.jsr_co_propLvl6                {  left: -185px; background-color: rgba(0,0,0,0.05); z-index: 6;  }
+.jsr_co_propLvl7                {  left: -209px; background-color: rgba(0,0,0,0.05); z-index: 7;  }
+
+.jsr_co_zLvl0                   {  z-index: 0;  position: relative;  }
+.jsr_co_zLvl1                   {  z-index: 1;  position: relative;  }
+.jsr_co_zLvl2                   {  z-index: 2;  position: relative;  }
+.jsr_co_zLvl3                   {  z-index: 3;  position: relative;  }
+.jsr_co_zLvl4                   {  z-index: 4;  position: relative;  }
+.jsr_co_zLvl5                   {  z-index: 5;  position: relative;  }
+.jsr_co_zLvl6                   {  z-index: 6;  position: relative;  }
+.jsr_co_zLvl7                   {  z-index: 7;  position: relative;  }
+
+.jsr_co_propList                {
+                                list-style-type: none;
+                                padding-left: 0;
+                                margin: 1px 0 0 0;
+                                }
+
+.jsr_co_oProp, .jsr_co_fnBody   {
+                                padding: 1px 4px 2px 20px;
+                                margin-left: 3px;
+                                color: #D14;
+                                border-left: 1px solid #e6e6e6;
+                                vertical-align: baseline;
+                                position: relative;
+                                }
+
+.jsr_co_fnBody                  {
+                                border-left: 6px solid #999;
+                                }   
+
+.jsr_cons_inVal                 { 
+                                display: block;
+                                color: #0228af;  
+                                vertical-align: baseline;
+                                padding: 0 0 0 15px;
+                                margin-left: -15px;
+                                }
+
+.jsr_cons_inIcon                {
+                                display:block;
+                                overflow:hidden;
+                                width: 5px;
+                                height: 9px;
+                                float: left;
+                                position: relative;
+                                margin: 5px 0 10px -13px;
+                                background-color:transparent;
+                                background-image:url('jsr_sprite.png');
+                                background-repeat:no-repeat;
+                                background-position: -10px 0;
+                                }
+
+.jsr_cons_errorIcon     
+                                {
+                                display: block;
+                                width: 14px;
+                                height: 15px;
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                margin: 12px 0 0 3px;
+                                overflow:hidden;
+                                background-color:transparent;
+                                background-image:url('jsr_sprite.png');
+                                background-repeat:no-repeat;
+                                background-position: -60px -40px;
+                                }
+
+
+#jsr_cons_out li span           {  vertical-align: baseline;  }
+
+.jsr_propName                   {  color: #08c;  }
+
+
+#jsr_cons_in_chrome             {
+                                position: absolute;
+                                bottom: 0;
+                                width: 100%;
+                                border-top: 1px solid #333;
+                                height: 34px;
+                                background: -webkit-gradient(linear, left top, left bottom, 
+                                                             color-stop(100%,#868686), 
+                                                             color-stop(0%,  #9a9a9a));
+                                background: -webkit-linear-gradient (top, #868686 100%, #9a9a9a 0%);
+                                }
+
+#jsr_cons_ps1                   {
+                                width: 30px;
+                                height: 24px;
+                                position: absolute;
+                                top: 0px;
+                                margin-left: -2px;
+                                border-radius: 3px;
+                                border: 1px solid #626262;
+                                background: url('jsr_sprite.png'),
+                                            -webkit-gradient(linear, left top, left bottom, 
+                                                             color-stop(100%,#cccccc), 
+                                                             color-stop(0%,  #fcfcfc));
+                                background: url('jsr_sprite.png'),
+                                            -webkit-linear-gradient (top, #cccccc 100%, #fcfcfc 0%);
+
+                                background-position: -110px 0;
+                                }
+
+#jsr_cmd_list                   {
+                                position:absolute;
+                                margin:0 0 0 0px;
+                                left: -4px;
+                                bottom: 0px;
+                                z-index:100;
+                                -webkit-appearance:none;
+                                -webkit-user-select:none;
+                                background-attachment:scroll;
+                                background-clip:border-box;
+                                background-color:transparent;
+                                background-image:none;
+                                background-origin:padding-box;
+                                border-radius: 0px;
+                                border: 0px;
+                                outline-color:transparent;
+                                outline-style:none;
+                                outline-width:0px;
+                                text-align:center;
+                                color:rgba(0,0,0,0);
+                                width:45px;
+                                height:33px;
+                                /*border:1px solid #0f0;*/ 
+                                }
+
+#jsr_cons_in_wrap               {
+                                position: relative;
+                                height: 34px;
+                                width: 100%;
+                                padding: 0 67px 0 10px;
+                                margin-top: 5px;
+                                }
+
+#jsr_cons_in                    {
+                                color: #000;
+                                width: 100%;
+                                height: 24px;
+                                font-family: Menlo, Monaco, "Consolas", "Courier", "Courier New", monospace;
+                                -webkit-user-select: text;
+                                border: 1px solid #999;
+                                padding: 0 0 0 29px;
+                                border-radius: 5px;
+                                vertical-align: middle;
+                                }
+
+
+#historySelect                  {
+                                position:absolute;
+                                z-index:100;
+                                -webkit-appearance:none;
+                                -webkit-user-select:none;
+                                background-attachment:scroll;
+                                background-clip:border-box;
+                                background-color:transparent;
+                                background-image:none;
+                                background-origin:padding-box;
+                                border-radius: 0px;
+                                border: 0px;
+                                outline-color:transparent;
+                                outline-style:none;
+                                outline-width:0px;
+                                margin:0 0 0 0px;
+                                right: 22px;
+                                bottom: 0px;
+                                text-align:center;
+                                color:rgba(0,0,0,0);
+                                width:45px;
+                                height:33px;
+                                /*border:1px solid #0f0;*/ 
+                                }
+
+#historySelectGraphic           {
+                                position: absolute;
+                                right: 33px;
+                                bottom: 8px;
+                                background-color:transparent;
+                                background-image:url('jsr_sprite.png');
+                                background-repeat:no-repeat;
+                                background-position: -60px 0;
+                                width:23px;
+                                height:15px;
+                                }   
+
+#resizeHandle                   {   
+                                cursor: pointer;
+                                position: absolute;
+                                right: -9px;
+                                bottom: -9px;
+                                padding: 14px;
+                                width:9px;
+                                height:9px;
+                                /*border:1px solid #0f0;*/
+                                }
+
+#resizeHandleIcon               {
+                                display: block;
+                                background-color:transparent;
+                                background-image:url('jsr_sprite.png');
+                                background-repeat:no-repeat;
+                                background-position: -90px 0;
+                                width:11px;
+                                height:11px;
+                                margin: -8px 0 0 -8px;
+                                /*border:1px solid #0ff;*/
+                                }
+
+
+
